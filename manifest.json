@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "PDF转Word转换器",
+  "version": "1.0.0",
+  "description": "轻松将PDF文件转换为Word文档，支持OCR识别",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://tessdata.projectnaptha.com/*",
+    "https://*.bdstatic.com/*",
+    "https://*.bcebos.com/*",
+    "https://aip.baidubce.com/*"
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "PDF转Word"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["pdf.min.js", "docx.min.js", "tesseract.min.js", "pdf-processor.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["pdf.min.js", "pdf.worker.min.js", "docx.min.js", "tesseract.min.js", "tesseract.worker.min.js", "panel.html", "styles/*", "icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
