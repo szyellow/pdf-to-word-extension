@@ -33,15 +33,37 @@
 
 ```
 pdf转word/
-├── manifest.json       # 插件配置文件
-├── background.js       # 后台脚本，处理图标点击事件
-├── content.js          # 内容脚本，渲染右侧面板
-├── pdf-processor.js    # PDF 解析和 Word 生成核心模块
-├── icons/              # 图标文件
+├── manifest.json          # 插件配置文件
+├── background.js          # 后台脚本，处理图标点击事件
+├── content.js             # 内容脚本，渲染右侧面板
+├── pdf-processor.js       # PDF 解析和 Word 生成核心模块
+├── icons/                 # 图标文件
 │   ├── icon16.png
 │   ├── icon48.png
 │   └── icon128.png
-└── README.md           # 说明文档
+├── pdf.min.js             # PDF.js 库（需自行下载）
+├── pdf.worker.min.js      # PDF.js Worker（需自行下载）
+├── docx.min.js            # docx.js 库（需自行下载）
+├── tesseract.min.js       # Tesseract.js 库（需自行下载）
+├── tesseract.worker.min.js # Tesseract.js Worker（需自行下载）
+└── README.md              # 说明文档
+```
+
+## 依赖库下载
+
+由于库文件较大，请自行下载以下文件并放入项目根目录：
+
+| 文件 | 下载地址 |
+|------|----------|
+| `pdf.min.js` | https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js |
+| `pdf.worker.min.js` | https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js |
+| `docx.min.js` | https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.min.js （重命名为 docx.min.js）|
+| `tesseract.min.js` | https://cdn.jsdelivr.net/npm/tesseract.js@5.0.3/dist/tesseract.min.js |
+| `tesseract.worker.min.js` | https://cdn.jsdelivr.net/npm/tesseract.js@5.0.3/dist/worker.min.js （重命名为 tesseract.worker.min.js）|
+
+或使用 npm 安装：
+```bash
+npm install pdfjs-dist docx tesseract.js
 ```
 
 ## 技术栈
